@@ -1,9 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Chrome } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
+  const GITHUB_REPO_URL = "https://github.com/your-repo/street-view-voyager";
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-background to-blue-100 dark:from-slate-900 dark:to-blue-950">
       <header className="py-6 px-4 md:px-8 shadow-md bg-background/80 backdrop-blur-md">
@@ -30,7 +33,7 @@ export default function Home() {
               <a href="#features">Learn More</a>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <a href="https://github.com/your-repo/street-view-voyager" target="_blank" rel="noopener noreferrer">
+              <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer">
                 View on GitHub
               </a>
             </Button>
@@ -42,7 +45,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader>
-                <Image src="https://placehold.co/600x400.png?text=3D+Overlay" alt="3D Model Overlay" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="map 3d car" />
+                <Image src="https://placehold.co/600x400.png" alt="3D Model Overlay" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="map 3d car" />
                 <CardTitle className="mt-4 font-headline">Interactive 3D Overlay</CardTitle>
               </CardHeader>
               <CardContent>
@@ -53,7 +56,7 @@ export default function Home() {
             </Card>
             <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader>
-                <Image src="https://placehold.co/600x400.png?text=Controls" alt="Customizable Controls" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="keyboard game controller" />
+                <Image src="https://placehold.co/600x400.png" alt="Customizable Controls" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="keyboard game controller" />
                 <CardTitle className="mt-4 font-headline">Realistic Controls</CardTitle>
               </CardHeader>
               <CardContent>
@@ -64,7 +67,7 @@ export default function Home() {
             </Card>
             <Card className="shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader>
-                <Image src="https://placehold.co/600x400.png?text=Sound+FX" alt="Dynamic Audio" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="headphones sound wave" />
+                <Image src="https://placehold.co/600x400.png" alt="Dynamic Audio" width={600} height={400} className="rounded-t-lg object-cover aspect-video" data-ai-hint="headphones sound wave" />
                 <CardTitle className="mt-4 font-headline">Immersive Sound</CardTitle>
               </CardHeader>
               <CardContent>
@@ -82,11 +85,13 @@ export default function Home() {
             Ready to explore? Install the Street View Voyager Chrome Extension and start your journey today.
             It's free and easy to set up!
           </p>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6">
-            <Chrome className="mr-3 h-6 w-6" /> Download Extension
+          <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6">
+            <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer">
+              <Chrome className="mr-3 h-6 w-6" /> Get Extension Code
+            </a>
           </Button>
-          <p className="mt-4 text-sm text-muted-foreground">
-            (Links to Chrome Web Store or GitHub releases)
+          <p className="mt-4 text-sm text-muted-foreground max-w-xl mx-auto">
+            This will take you to the GitHub repository. Download the files from the 'street-view-rider' folder, then load it as an "unpacked extension" in Chrome (see README.md in that folder for detailed steps).
           </p>
         </section>
       </main>
