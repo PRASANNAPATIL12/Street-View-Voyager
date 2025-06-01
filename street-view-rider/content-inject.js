@@ -1,8 +1,27 @@
-// content-inject.js (Runs in page context; can access window.google.maps)
-
 (() => {
   let dependenciesLoaded = false;
   let initAttempted = false;
+  const cacheKeyPrefix = 'svr_cache_';
+
+   // Function to cache data
+   const cacheData = (key, data) => {
+    try {
+      localStorage.setItem(cacheKeyPrefix + key, JSON.stringify(data));
+    } catch (e) {
+      console.error('Failed to cache data:', e);
+    }
+  };
+
+  // Function to retrieve data from cache
+  const getCachedData = (key) => {
+    try {
+      const cachedData = localStorage.getItem(cacheKeyPrefix + key);
+      return cachedData ? JSON.parse(cachedData) : null;
+    } catch (e) {
+      console.error('Failed to retrieve data from cache:', e);
+      return null;
+    }
+  };
 
   function waitForDependencies() {
     return new Promise((resolve, reject) => {
@@ -297,16 +316,25 @@
       return;
     }
     const modelPath = chrome.runtime.getURL(`assets/models/${modelFileName}`);
-    
-    loader.load(modelPath, (gltf) => {
-      carModel = gltf.scene;
-      // Adjust scale and initial orientation as needed for your model
-      // Example: carModel.scale.set(0.5, 0.5, 0.5);
-      // carModel.rotation.y = Math.PI; // if model faces wrong way
+
+    // Check cache for the model
+    const cachedModel = getCachedData(modelPath);
+    if (cachedModel) {
+      console.log("SVR: Loading model from cache:", modelPath);
+      carModel = cachedModel; // Directly use cached model
       scene.add(carModel);
-    }, undefined, (error) => {
-      console.error("SVR: Error loading model:", error);
-    });
+    } else {
+      loader.load(modelPath, (gltf) => {
+        carModel = gltf.scene;
+        // Adjust scale and initial orientation as needed for your model
+        // Example: carModel.scale.set(0.5, 0.5, 0.5);
+        // carModel.rotation.y = Math.PI; // if model faces wrong way
+        scene.add(carModel);
+        cacheData(modelPath, carModel); // Cache the model
+      }, undefined, (error) => {
+        console.error("SVR: Error loading model:", error);
+      });
+    }
   }
   
   function setupEventListeners() {

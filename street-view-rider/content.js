@@ -1,10 +1,27 @@
-// content.js (Chrome Content Script)
-// Runs in “isolated world,” cannot directly access window.google.maps.
-// We inject content-inject.js into the page context so it can access Street View objects.
-
 (() => {
   let svrContainer = document.getElementById("svr-container");
   let riderEnabled = false; // Local state for the toggle
+  const cacheKeyPrefix = 'svr_cache_';
+
+  // Function to cache data
+  const cacheData = (key, data) => {
+    try {
+      localStorage.setItem(cacheKeyPrefix + key, JSON.stringify(data));
+    } catch (e) {
+      console.error('Failed to cache data:', e);
+    }
+  };
+
+  // Function to retrieve data from cache
+  const getCachedData = (key) => {
+    try {
+      const cachedData = localStorage.getItem(cacheKeyPrefix + key);
+      return cachedData ? JSON.parse(cachedData) : null;
+    } catch (e) {
+      console.error('Failed to retrieve data from cache:', e);
+      return null;
+    }
+  };
 
   if (!svrContainer) {
     svrContainer = document.createElement("div");
