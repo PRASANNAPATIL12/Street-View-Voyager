@@ -1,0 +1,185 @@
+/* styles/popup.css */
+body {
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  width: 320px;
+  background-color: #F0F8FF; /* Light desaturated blue */
+  color: #333; /* Darker text for readability */
+  font-size: 14px;
+}
+
+.popup-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5em;
+  color: #29ABE2; /* Primary color */
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  margin: 10px 0 5px 0;
+  border-bottom: 1px solid #DDEEFF; /* Lighter border */
+  padding-bottom: 5px;
+  color: #29ABE2; /* Primary color */
+}
+
+.toggle-button {
+  background-color: #FF9933; /* Accent color */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-button:hover {
+  background-color: #e68a2e; /* Darker accent */
+}
+
+.toggle-button.active {
+  background-color: #28a745; /* Green when active */
+}
+.toggle-button.active:hover {
+  background-color: #218838; /* Darker green */
+}
+
+
+.vehicle-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+}
+
+.vehicle-item {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #B0C4DE; /* Light steel blue border */
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.vehicle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-item:hover {
+  transform: scale(1.05);
+  border-color: #FF9933; /* Accent color on hover */
+}
+
+.vehicle-item.selected {
+  border-color: #29ABE2; /* Primary color for selected */
+  box-shadow: 0 0 0 2px #29ABE2;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#volume-slider {
+  width: 100%;
+  accent-color: #29ABE2; /* Primary color for slider thumb */
+}
+
+#volume-value {
+  font-size: 0.9em;
+  color: #555;
+  min-width: 35px; /* Ensure space for percentage */
+}
+
+.controls-config {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.controls-config label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.controls-config input[type="text"] {
+  width: 80px;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #B0C4DE; /* Light steel blue border */
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-family: 'PT Sans', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.controls-config input[type="text"]:focus {
+  border-color: #29ABE2; /* Primary color */
+  box-shadow: 0 0 0 2px rgba(41, 171, 226, 0.2);
+  outline: none;
+}
+
+#save-settings-button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #29ABE2; /* Primary color */
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+#save-settings-button:hover {
+  background-color: #238fbf; /* Darker primary */
+}
+
+#status-message {
+  text-align: center;
+  font-size: 0.9em;
+  color: #28a745; /* Green for success */
+  min-height: 1.2em; /* Reserve space */
+  margin-top: 5px;
+}
+
+.options-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #FF9933; /* Accent color */
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.options-link:hover {
+  text-decoration: underline;
+}

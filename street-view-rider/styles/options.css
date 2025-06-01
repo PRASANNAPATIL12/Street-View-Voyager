@@ -1,0 +1,139 @@
+/* styles/options.css */
+body {
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  background-color: #F0F8FF; /* Light desaturated blue */
+  color: #333; /* Darker text for readability */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top for scrollable content */
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.options-container {
+  padding: 25px 30px;
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #29ABE2; /* Primary color */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.option-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e8ef;
+}
+
+.option-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 30px; /* More space before save button */
+}
+
+.option-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  color: #238fbf; /* Darker primary */
+  margin-bottom: 8px;
+}
+
+.option-section p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #444;
+  font-size: 1rem;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #B0C4DE; /* Light steel blue border */
+  border-radius: 5px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #29ABE2; /* Primary color */
+  box-shadow: 0 0 0 3px rgba(41, 171, 226, 0.2);
+  outline: none;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+input[type="range"] {
+  flex-grow: 1;
+  accent-color: #29ABE2; /* Primary color for slider thumb */
+}
+
+#default-volume-value {
+  font-size: 1rem;
+  color: #333;
+  min-width: 40px;
+  font-weight: bold;
+}
+
+.control-sensitivity-grid {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Label and input */
+  gap: 12px 10px; /* Row gap, column gap */
+  align-items: center;
+}
+
+.control-sensitivity-grid label {
+  text-align: right;
+  font-weight: normal; /* Less emphasis than section titles */
+}
+
+
+#options-save-button {
+  background-color: #29ABE2; /* Primary color */
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+#options-save-button:hover {
+  background-color: #238fbf; /* Darker primary */
+}
+
+#options-status-message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #28a745; /* Green for success */
+  min-height: 1.5em; /* Reserve space */
+}

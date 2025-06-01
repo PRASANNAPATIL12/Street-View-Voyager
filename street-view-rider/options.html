@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/options.css"/>
+  <title>Street View Voyager Options</title>
+</head>
+<body>
+  <div class="options-container">
+    <h1>Street View Voyager Options</h1>
+    
+    <section class="option-section">
+      <h2>Default Vehicle</h2>
+      <p>Choose the vehicle that will be selected by default when you start the extension.</p>
+      <select id="default-vehicle-select">
+        <option value="car-sedan">Sedan</option>
+        <option value="car-sport">Sport Car</option>
+        <option value="bike-road">Road Bike</option>
+        <!-- Add more vehicle options here if new models are added -->
+      </select>
+    </section>
+    
+    <section class="option-section">
+      <h2>Default Sound Volume</h2>
+      <p>Set the initial volume for engine and ambient sounds.</p>
+      <div class="slider-container">
+        <input type="range" id="default-volume-slider" min="0" max="1" step="0.01" />
+        <span id="default-volume-value">50%</span>
+      </div>
+    </section>
+    
+    <section class="option-section">
+      <h2>Control Sensitivity</h2>
+      <p>Adjust how responsive the vehicle controls are.</p>
+      <div class="control-sensitivity-grid">
+        <label for="turn-speed">Turn Speed (deg/s):</label>
+        <input type="number" id="turn-speed" min="10" max="180" step="1" />
+        
+        <label for="max-speed">Max Speed (m/s):</label>
+        <input type="number" id="max-speed" min="5" max="50" step="1" />
+         
+        <label for="acceleration">Acceleration (m/s²):</label>
+        <input type="number" id="acceleration" min="1" max="20" step="0.5" />
+
+        <label for="braking-force">Braking Force (m/s²):</label>
+        <input type="number" id="braking-force" min="1" max="30" step="0.5" />
+        
+        <label for="drag-coefficient">Drag/Friction:</label>
+        <input type="number" id="drag-coefficient" min="0.1" max="10" step="0.1" />
+      </div>
+    </section>
+    
+    <button id="options-save-button">Save Options</button>
+    <p id="options-status-message"></p>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

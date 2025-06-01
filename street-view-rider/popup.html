@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/popup.css" />
+  <title>Street View Rider</title>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header-section">
+      <h1>Street View Voyager</h1>
+      <button id="toggle-rider-button" class="toggle-button">Enable Rider</button>
+    </div>
+    
+    <h2>Select Your Vehicle</h2>
+    <div id="vehicle-list" class="vehicle-list">
+      <!-- Dynamically populated with thumbnails -->
+    </div>
+    
+    <h2>Sound Volume</h2>
+    <div class="slider-container">
+      <input type="range" id="volume-slider" min="0" max="1" step="0.01" />
+      <span id="volume-value">50%</span>
+    </div>
+    
+    <h2>Key Bindings</h2>
+    <div class="controls-config">
+      <label>Forward: <input type="text" id="key-forward" maxlength="10" data-keybind="forward" /></label>
+      <label>Backward: <input type="text" id="key-backward" maxlength="10" data-keybind="backward" /></label>
+      <label>Turn Left: <input type="text" id="key-left" maxlength="10" data-keybind="left" /></label>
+      <label>Turn Right: <input type="text" id="key-right" maxlength="10" data-keybind="right" /></label>
+      <label>Horn: <input type="text" id="key-horn" maxlength="10" data-keybind="horn" /></label>
+    </div>
+    <button id="save-settings-button">Save Settings</button>
+    <p id="status-message"></p>
+    <a href="options.html" target="_blank" class="options-link">More Options</a>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
